@@ -20,10 +20,7 @@ class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                '}';
+        return "Book{title='" + title + "', author='" + author + "'}";
     }
 }
 
@@ -80,27 +77,15 @@ public class Library {
         library.displayBooks();
 
         // Searching by title
-        String titleToSearch = "Java Programming";
-        ArrayList<Book> foundByTitle = library.searchByTitle(titleToSearch);
-        System.out.println("\nBooks with title '" + titleToSearch + "':");
-        if (!foundByTitle.isEmpty()) {
-            for (Book book : foundByTitle) {
-                System.out.println(book);
-            }
-        } else {
-            System.out.println("No books found with title '" + titleToSearch + "'.");
+        System.out.println("\nBooks with title 'Java Programming':");
+        for (Book book : library.searchByTitle("Java Programming")) {
+            System.out.println(book);
         }
 
         // Searching by author
-        String authorToSearch = "John Doe";
-        ArrayList<Book> foundByAuthor = library.searchByAuthor(authorToSearch);
-        System.out.println("\nBooks by author '" + authorToSearch + "':");
-        if (!foundByAuthor.isEmpty()) {
-            for (Book book : foundByAuthor) {
-                System.out.println(book);
-            }
-        } else {
-            System.out.println("No books found by author '" + authorToSearch + "'.");
+        System.out.println("\nBooks by author 'John Doe':");
+        for (Book book : library.searchByAuthor("John Doe")) {
+            System.out.println(book);
         }
     }
 }
